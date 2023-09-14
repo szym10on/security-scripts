@@ -1,0 +1,32 @@
+#AntiBot script
+#github@szym10on
+
+command /antibot:
+    permission: antibot.permission
+    permission message: &cThere is no such a command! Try /help.
+    trigger:
+        set {skript::lastjoin} to 0
+        set {skript::antibot} to 1
+        loop all players:
+            if loop-player's time played is less than 5 minutes:
+                kick loop-player due to "&c&l(ANTIBOT) &aSorry for the problem. Connect again in 10 minutes."
+
+on join:
+    if {skript::antibot} is more than 0:
+        if player's time played is less than 10 minutes:
+            kick player due to "&c&l(ANTYBOT) &aPrzepraszamy za problem. Połącz się ponownie za 5-10 minut."
+    if {skript::lastjoin} is more than 2:
+        kick player due to "&aZalecamy odczekać 10 sekund przed kolejnym połączeniem."
+    else:
+        stop
+        add 1 to {skript::lastjoin}
+        stop
+
+every 5 seconds:
+    if {skript::lastjoin} is more than 0:
+        remove 1 from {skript::lastjoin}
+
+every 1 minute:
+    if {skript::antibot} is more than 0:
+        wait 30 seconds
+        set {skript::antibot} to 0

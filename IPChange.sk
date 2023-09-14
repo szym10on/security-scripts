@@ -1,0 +1,11 @@
+#IPChange script
+#github@szym10on
+
+on first join:
+    if {ip::%player%} is not set:
+        set {ip::%player%} to player's ip
+on join:
+    if player's ip is not {ip::%player%}:
+        loop all players:
+            if loop-player has permissions "ipchange.permission":
+                send "&c&l%player% &cconnected from different IP!" to loop-player

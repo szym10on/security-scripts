@@ -1,0 +1,5 @@
+#IPChange script
+#github@szym10on
+
+on first join:
+    kick player due to "&aVerification went correct. Connect again now."

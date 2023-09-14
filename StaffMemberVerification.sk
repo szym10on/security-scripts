@@ -1,0 +1,12 @@
+#StaffMemberVerification script
+#github@szym10on
+
+on join:
+    if player is "xyz":
+        if player's ip is not "192.168.0.1":
+            kick player due to "&cYou are connecting from a wrong IP address as ussualy. Contact a server owner."
+
+on join:
+    if player is "xyz2":
+        if player's ip is not "192.168.0.2":
+            kick player due to "&cYou are connecting from a wrong IP address as ussualy. Contact a server owner."
